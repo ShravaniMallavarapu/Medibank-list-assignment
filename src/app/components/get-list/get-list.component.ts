@@ -36,22 +36,19 @@ export class GetListComponent implements OnInit {
               }
             })
           })
-          this.maleCatsList.sort(function(cat1,cat2) { //Sorting alphabetically
-            if (cat1 < cat2) return -1;
-            if (cat1 > cat2) return 1;
-            return 0;
-          })
-          this.femaleCatsList.sort(function(cat1,cat2) { //Sorting alphabetically
-            if (cat1 < cat2) return -1;
-            if (cat1 > cat2) return 1;
-            return 0;
-          })
+          this.maleCatsList.sort(sort)
+          this.femaleCatsList.sort(sort)
       }, error => {
         console.log(error)
       })
     } catch(error) {
       console.log(error)
     }
+  
+    function sort(cat1: string, cat2: string) {
+      if (cat1 < cat2) return -1;
+      if (cat1 > cat2) return 1;
+      return 0;
+    }
   }
-
 }
